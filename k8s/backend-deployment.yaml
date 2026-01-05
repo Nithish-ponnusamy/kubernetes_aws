@@ -14,6 +14,20 @@ spec:
     spec:
       containers:
         - name: backend
-          image: aws-backend:latest
+          image: 123456789012.dkr.ecr.us-east-1.amazonaws.com/aws-backend:latest
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 5000
+          env:
+            - name: MONGO_URL
+              valueFrom:
+                secretKeyRef:
+                  name: mongo-secret
+                  key: mongo-url
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
