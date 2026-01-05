@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 
-const API_BASE = process.env.REACT_APP_API_BASE || "http://localhost:5000";
+const API_BASE = process.env.REACT_APP_API_BASE || "10.106.247.17:5000";
 const HISTORY_POINTS = 28;
 
 const clamp = (value, min = 0, max = 100) =>
